@@ -6,12 +6,18 @@ class PostList extends React.Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
+
   render() {
+    console.log('Posts ->>>>> ', this.props.posts);
     return <div>PostList</div>;
   }
 }
 
+const mapStateToProps = state => {
+  return { posts: state.posts };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { fetchPosts }
 )(PostList);
